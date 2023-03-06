@@ -1,1 +1,78 @@
+server:
+  port: 20881
+
+# mysql
+spring:
+  datasource:
+    #MySQL配置
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://124.223.161.145:3306/students?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: Zan.5200
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      max-active: 20
+      max-wait: 60000
+      min-idle: 1
+      min-evictable-idle-time-millis: 1800000
+      max-evictable-idle-time-millis: 25200000
+      time-between-eviction-runs-millis: 60000
+      test-while-idle: true
+      validation-query: SELECT 1
+
+
+
+
+    #oracle配置
+    #    driverClassName: oracle.jdbc.OracleDriver
+    #    url: jdbc:oracle:thin:@47.100.206.162:1521:xe
+    #    username: renren
+    #    password: 123456
+    #SQLServer配置
+    #    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    #    url: jdbc:sqlserver://192.168.10.10:1433;DatabaseName=renren_fast
+    #    username: sa
+    #    password: 123456
+    #PostgreSQL配置
+  #    driverClassName: org.postgresql.Driver
+  #    url: jdbc:postgresql://192.168.10.10:5432/renren_fast
+  #    username: postgres
+  #    password: 123456
+
+
+#
+#  jackson:
+#    time-zone: GMT+8
+#    date-format: yyyy-MM-dd HH:mm:ss
+#  resources:
+#    static-locations: classpath:/static/,classpath:/views/
+
+
+#mongodb:
+#  host: localhost
+#  port: 27017
+#  auth: false #是否使用密码验证
+#  username: tincery
+#  password: renren
+#  source: 123456
+#  database: test
+
+mybatis-plus:
+  type-aliases-package: com.sitech.bds.po.label
+  mapper-locations: classpath*:/mapper/egroup*.xml
+  configuration:
+    call-setters-on-nulls: true
+
+
+pagehelper:
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+#指定数据库，可选值有【mysql、oracle、sqlserver、postgresql、mongodb】
+renren:
+  database: mysql
+
 
