@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zto.onecard.service.base.egroup.mapper.GradesDao">
+
+    <resultMap type="com.zto.onecard.service.base.egroup.entity.Grades" id="GradesMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="studentId" column="student_id" jdbcType="INTEGER"/>
+        <result property="courseId" column="course_id" jdbcType="INTEGER"/>
+        <result property="score" column="score" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into students.grades(student_id, course_id, score)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.studentId}, #{entity.courseId}, #{entity.score})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into students.grades(student_id, course_id, score)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.studentId}, #{entity.courseId}, #{entity.score})
+        </foreach>
+        on duplicate key update
+        student_id = values(student_id) , course_id = values(course_id) , score = values(score)
+    </insert>
+
+</mapper>
+

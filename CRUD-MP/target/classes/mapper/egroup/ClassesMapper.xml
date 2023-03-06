@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zto.onecard.service.base.egroup.mapper.ClassesMapper">
+
+	<!-- resultMap 基本 -->
+    <resultMap type="com.zto.onecard.service.base.egroup.entity.ClassesEntity" id="classesMap">
+                    <result property="id" column="id"/>
+                    <result property="name" column="name"/>
+                    <result property="grade" column="grade"/>
+                    <result property="teacherId" column="teacher_id"/>
+            </resultMap>
+
+    <!-- 基础表字段 -->
+    <sql id="Classes_basic_sql">
+                    id,                    name,                    grade,                    teacher_id            </sql>
+
+    <!-- 表名 -->
+    <sql id="Classes_tableName">
+        classes
+    </sql>
+
+    <!-- 单个表添加 -->
+    <insert id="create" parameterType="com.zto.onecard.service.base.egroup.entity.ClassesEntity" useGeneratedKeys="true" keyProperty="id">
+        insert into classes
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+                            <if test="id != null" >
+                    id,                </if>
+                            <if test="name != null" >
+                    name,                </if>
+                            <if test="grade != null" >
+                    grade,                </if>
+                            <if test="teacherId != null" >
+                    teacher_id                </if>
+                    </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                            <if test="id != null" >
+                    #{id},                </if>
+                            <if test="name != null" >
+                    #{name},                </if>
+                            <if test="grade != null" >
+                    #{grade},                </if>
+                            <if test="teacherId != null" >
+                    #{teacherId}                </if>
+                    </trim>
+    </insert>
+
+    <!-- 分页搜索查询 -->
+    <select id="queryForPage" resultMap="classesMap">
+        select
+        <include refid="Classes_basic_sql" />
+        from
+        <include refid="Classes_tableName" />
+        <where>
+            <if test="params.id != null">
+                and id = #{params.id}
+            </if>
+            
+        </where>
+    </select>
+
+    <select id="queryById" resultMap="classesMap">
+        select
+        <include refid="Classes_basic_sql" />
+        from
+        <include refid="Classes_tableName" />
+        where id = #{id}
+    </select>
+
+    <select id="queryCount" resultType="int">
+        select count(*) from <include refid="Classes_tableName" />
+    </select>
+
+    <!-- 修改操作 -->
+    <update id="modifyById">
+        update  <include refid="Classes_tableName" />
+        <set>
+                            <if test="id != null" >
+                    id = #{id},                </if>
+                            <if test="name != null" >
+                    name = #{name},                </if>
+                            <if test="grade != null" >
+                    grade = #{grade},                </if>
+                            <if test="teacherId != null" >
+                    teacher_id = #{teacherId}                </if>
+                    </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delById">
+        delete from <include refid="Classes_tableName" /> where id = #{id}
+    </delete>
+
+    <delete id="delByIds">
+        delete from <include refid="Classes_tableName" /> where id in
+        <foreach collection="ids" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+    </delete>
+
+
+
+</mapper>

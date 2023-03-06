@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zto.onecard.service.base.egroup.mapper.EnrollmentsMapper">
+
+	<!-- resultMap 基本 -->
+    <resultMap type="com.zto.onecard.service.base.egroup.entity.EnrollmentsEntity" id="enrollmentsMap">
+                    <result property="id" column="id"/>
+                    <result property="studentId" column="student_id"/>
+                    <result property="courseId" column="course_id"/>
+                    <result property="enrollDate" column="enroll_date"/>
+            </resultMap>
+
+    <!-- 基础表字段 -->
+    <sql id="Enrollments_basic_sql">
+                    id,                    student_id,                    course_id,                    enroll_date            </sql>
+
+    <!-- 表名 -->
+    <sql id="Enrollments_tableName">
+        enrollments
+    </sql>
+
+    <!-- 单个表添加 -->
+    <insert id="create" parameterType="com.zto.onecard.service.base.egroup.entity.EnrollmentsEntity" useGeneratedKeys="true" keyProperty="id">
+        insert into enrollments
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+                            <if test="id != null" >
+                    id,                </if>
+                            <if test="studentId != null" >
+                    student_id,                </if>
+                            <if test="courseId != null" >
+                    course_id,                </if>
+                            <if test="enrollDate != null" >
+                    enroll_date                </if>
+                    </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                            <if test="id != null" >
+                    #{id},                </if>
+                            <if test="studentId != null" >
+                    #{studentId},                </if>
+                            <if test="courseId != null" >
+                    #{courseId},                </if>
+                            <if test="enrollDate != null" >
+                    #{enrollDate}                </if>
+                    </trim>
+    </insert>
+
+    <!-- 分页搜索查询 -->
+    <select id="queryForPage" resultMap="enrollmentsMap">
+        select
+        <include refid="Enrollments_basic_sql" />
+        from
+        <include refid="Enrollments_tableName" />
+        <where>
+            <if test="params.id != null">
+                and id = #{params.id}
+            </if>
+            
+        </where>
+    </select>
+
+    <select id="queryById" resultMap="enrollmentsMap">
+        select
+        <include refid="Enrollments_basic_sql" />
+        from
+        <include refid="Enrollments_tableName" />
+        where id = #{id}
+    </select>
+
+    <select id="queryCount" resultType="int">
+        select count(*) from <include refid="Enrollments_tableName" />
+    </select>
+
+    <!-- 修改操作 -->
+    <update id="modifyById">
+        update  <include refid="Enrollments_tableName" />
+        <set>
+                            <if test="id != null" >
+                    id = #{id},                </if>
+                            <if test="studentId != null" >
+                    student_id = #{studentId},                </if>
+                            <if test="courseId != null" >
+                    course_id = #{courseId},                </if>
+                            <if test="enrollDate != null" >
+                    enroll_date = #{enrollDate}                </if>
+                    </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delById">
+        delete from <include refid="Enrollments_tableName" /> where id = #{id}
+    </delete>
+
+    <delete id="delByIds">
+        delete from <include refid="Enrollments_tableName" /> where id in
+        <foreach collection="ids" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+    </delete>
+
+
+
+</mapper>
