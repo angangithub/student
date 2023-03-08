@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sitech.bds.mapper.CoursesMapper">
+
+	<!-- resultMap 基本 -->
+    <resultMap type="com.sitech.bds.entity.CoursesEntity" id="coursesMap">
+                    <result property="id" column="id"/>
+                    <result property="name" column="name"/>
+                    <result property="description" column="description"/>
+                    <result property="credit" column="credit"/>
+            </resultMap>
+
+    <!-- 基础表字段 -->
+    <sql id="Courses_basic_sql">
+                    id
+,                    name
+,                    description
+,                    credit
+            </sql>
+
+    <!-- 表名 -->
+    <sql id="Courses_tableName">
+        courses
+    </sql>
+
+
+</mapper>

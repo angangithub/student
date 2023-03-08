@@ -1,5 +1,5 @@
 server:
-  port: 20880
+  port: 20881
 
 # mysql
 spring:
@@ -41,12 +41,13 @@ spring:
   #    password: 123456
 
 
+#
+#  jackson:
+#    time-zone: GMT+8
+#    date-format: yyyy-MM-dd HH:mm:ss
+#  resources:
+#    static-locations: classpath:/static/,classpath:/views/
 
-  jackson:
-    time-zone: GMT+8
-    date-format: yyyy-MM-dd HH:mm:ss
-  resources:
-    static-locations: classpath:/static/,classpath:/views/
 
 #mongodb:
 #  host: localhost
@@ -59,7 +60,7 @@ spring:
 
 mybatis-plus:
   type-aliases-package: com.sitech.bds.po.label
-  mapper-locations: classpath*:/mapper/egroup*.xml
+  mapper-locations: classpath*:/mapper/bds*.xml
   configuration:
     call-setters-on-nulls: true
 
@@ -73,4 +74,5 @@ pagehelper:
 #指定数据库，可选值有【mysql、oracle、sqlserver、postgresql、mongodb】
 renren:
   database: mysql
+
 
