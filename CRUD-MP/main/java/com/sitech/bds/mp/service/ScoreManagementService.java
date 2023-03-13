@@ -1,8 +1,8 @@
 package com.sitech.bds.mp.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.sitech.bds.mp.common.utils.Result;
 import com.sitech.bds.mp.entity.ScoreManagementEntity;
+import com.sitech.bds.mp.common.utils.Result;
 
 
 /**

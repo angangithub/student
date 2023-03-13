@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CRUD.iml" filepath="$PROJECT_DIR$/.idea/CRUD.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CRUD-MP/MP.iml" filepath="$PROJECT_DIR$/CRUD-MP/MP.iml" />
       <module fileurl="file://$PROJECT_DIR$/CRUD-jpa/jpa.iml" filepath="$PROJECT_DIR$/CRUD-jpa/jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CRUD-MP/MP.iml" filepath="$PROJECT_DIR$/CRUD-MP/MP.iml" />
     </modules>
   </component>
 </project>

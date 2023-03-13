@@ -18,7 +18,7 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="实体类", description="")
+@ApiModel(value="课程", description="")
 @TableName("courses")
 public class CoursesEntity implements Serializable {
 

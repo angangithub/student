@@ -19,7 +19,7 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="实体类", description="")
+@ApiModel(value="学生", description="")
 @TableName("students")
 public class StudentsEntity implements Serializable {
 
@@ -46,7 +46,7 @@ public class StudentsEntity implements Serializable {
 	private String phone;
 
 	@ApiModelProperty(value = "")
-	private Date enrollDate;
+	private String enrollDate;
 
 	@ApiModelProperty(value = "")
 	private Integer classId;

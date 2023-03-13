@@ -6,9 +6,9 @@ spring:
   datasource:
     #MySQL配置
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://124.223.161.145:3306/students?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://150.158.77.135:3306/students?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
-    password: Zan.5200
+    password: root
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       initial-size: 5

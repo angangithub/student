@@ -19,7 +19,7 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="实体类", description="")
+@ApiModel(value="老师", description="")
 @TableName("teachers")
 public class TeachersEntity implements Serializable {
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.sitech.bds.mapper.StudentsMapper">
+<mapper namespace="com.sitech.bds.mp.mapper.StudentsMapper">
 
 	<!-- resultMap 基本 -->
-    <resultMap type="com.sitech.bds.entity.StudentsEntity" id="studentsMap">
+    <resultMap type="com.sitech.bds.mp.entity.StudentsEntity" id="studentsMap">
                     <result property="id" column="id"/>
                     <result property="name" column="name"/>
                     <result property="gender" column="gender"/>

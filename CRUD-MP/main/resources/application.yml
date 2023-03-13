@@ -6,9 +6,9 @@ spring:
   datasource:
     #MySQL配置
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://124.223.161.145:3306/students?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://150.158.77.135:3500/students?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
-    password: Zan.5200
+    password: root
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       initial-size: 5
@@ -20,6 +20,8 @@ spring:
       time-between-eviction-runs-millis: 60000
       test-while-idle: true
       validation-query: SELECT 1
+
+
 
 
 
@@ -39,8 +41,18 @@ spring:
   #    url: jdbc:postgresql://192.168.10.10:5432/renren_fast
   #    username: postgres
   #    password: 123456
+#swagger:
+#   basic:
+#     enable: true
+#     username: admin
+#     password: admin
 
 
+swagger:
+  basic:
+    enable: true
+    username: admin
+    password: 123456
 #
 #  jackson:
 #    time-zone: GMT+8

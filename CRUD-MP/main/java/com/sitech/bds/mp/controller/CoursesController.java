@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("courses")
-@Api(tags = "管理" )
+@Api(tags = "课程管理" )
 public class CoursesController {
 
     @Resource
