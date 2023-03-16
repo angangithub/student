@@ -21,9 +21,25 @@ spring:
       test-while-idle: true
       validation-query: SELECT 1
 
+mybatis-plus:
+  type-aliases-package: com.sitech.bds.po.label
+  mapper-locations: classpath*:/mapper/bds*.xml
+  configuration:
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pagehelper:
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
 
 
+#指定数据库，可选值有【mysql、oracle、sqlserver、postgresql、mongodb】
+renren:
+  database: mysql
 
+knife4j:
+  enable: true
 
 
     #oracle配置
@@ -49,8 +65,7 @@ spring:
 
 
 # 开启Knife4j框架的增强模式
-knife4j:
-  enable: true
+
 #
 #  jackson:
 #    time-zone: GMT+8
@@ -68,21 +83,6 @@ knife4j:
 #  source: 123456
 #  database: test
 
-mybatis-plus:
-  type-aliases-package: com.sitech.bds.po.label
-  mapper-locations: classpath*:/mapper/bds*.xml
-  configuration:
-    call-setters-on-nulls: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-pagehelper:
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
-
-
-#指定数据库，可选值有【mysql、oracle、sqlserver、postgresql、mongodb】
-renren:
-  database: mysql
 
 
