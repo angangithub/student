@@ -34,7 +34,7 @@ public class TeachersServiceImpl extends ServiceImpl<TeachersMapper, TeachersEnt
             Assert.notNull(size,"参数异常");
             Page<TeachersEntity> page = new Page<>(current,size);
             QueryWrapper<TeachersEntity> wrapper = new QueryWrapper<>();
-            wrapper.orderByDesc("create_time");
+//            wrapper.orderByDesc("create_time");
             baseMapper.selectPage(page,wrapper);
             return Result.ok(page);
         }catch(Exception e){

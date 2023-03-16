@@ -34,7 +34,7 @@ public class GradesServiceImpl extends ServiceImpl<GradesMapper, GradesEntity> i
             Assert.notNull(size,"参数异常");
             Page<GradesEntity> page = new Page<>(current,size);
             QueryWrapper<GradesEntity> wrapper = new QueryWrapper<>();
-            wrapper.orderByDesc("create_time");
+//            wrapper.orderByDesc("create_time");
             baseMapper.selectPage(page,wrapper);
             return Result.ok(page);
         }catch(Exception e){

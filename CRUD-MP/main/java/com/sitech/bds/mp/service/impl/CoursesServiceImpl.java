@@ -34,7 +34,7 @@ public class CoursesServiceImpl extends ServiceImpl<CoursesMapper, CoursesEntity
             Assert.notNull(size,"参数异常");
             Page<CoursesEntity> page = new Page<>(current,size);
             QueryWrapper<CoursesEntity> wrapper = new QueryWrapper<>();
-            wrapper.orderByDesc("create_time");
+//            wrapper.orderByDesc("create_time");
             baseMapper.selectPage(page,wrapper);
             return Result.ok(page);
         }catch(Exception e){

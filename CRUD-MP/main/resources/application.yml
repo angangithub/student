@@ -48,11 +48,9 @@ spring:
 #     password: admin
 
 
-swagger:
-  basic:
-    enable: true
-    username: admin
-    password: 123456
+# 开启Knife4j框架的增强模式
+knife4j:
+  enable: true
 #
 #  jackson:
 #    time-zone: GMT+8
@@ -75,7 +73,7 @@ mybatis-plus:
   mapper-locations: classpath*:/mapper/bds*.xml
   configuration:
     call-setters-on-nulls: true
-
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 pagehelper:
   reasonable: true

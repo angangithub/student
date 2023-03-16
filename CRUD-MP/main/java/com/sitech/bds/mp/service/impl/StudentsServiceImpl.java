@@ -34,7 +34,7 @@ public class StudentsServiceImpl extends ServiceImpl<StudentsMapper, StudentsEnt
             Assert.notNull(size,"参数异常");
             Page<StudentsEntity> page = new Page<>(current,size);
             QueryWrapper<StudentsEntity> wrapper = new QueryWrapper<>();
-            wrapper.orderByDesc("create_time");
+//            wrapper.orderByDesc("create_time");
             baseMapper.selectPage(page,wrapper);
             return Result.ok(page);
         }catch(Exception e){

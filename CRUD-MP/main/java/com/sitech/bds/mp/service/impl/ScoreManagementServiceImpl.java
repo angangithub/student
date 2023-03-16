@@ -34,7 +34,7 @@ public class ScoreManagementServiceImpl extends ServiceImpl<ScoreManagementMappe
             Assert.notNull(size,"参数异常");
             Page<ScoreManagementEntity> page = new Page<>(current,size);
             QueryWrapper<ScoreManagementEntity> wrapper = new QueryWrapper<>();
-            wrapper.orderByDesc("create_time");
+//            wrapper.orderByDesc("create_time");
             baseMapper.selectPage(page,wrapper);
             return Result.ok(page);
         }catch(Exception e){
